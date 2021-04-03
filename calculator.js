@@ -13,14 +13,14 @@ let ids = {
     "7": "seven",
     "8": "eight",
     "9": "nine",
-    "=": "equals",
+    "Enter": "equals",
     "*": "multiply",
     "/": "divide",
     "-": "substract",
     ".": "decimal",
     "+": "add",
-    "backspace": "clear"
-    }
+    "Backspace": "clear"
+    };
 
 class Calculator extends React.Component {
     constructor(props) {
@@ -30,8 +30,11 @@ class Calculator extends React.Component {
             current: [0],
             isFloat: true
         }
-        window.addEventListener("keydown", (e)=>{document.getElementById(ids[e.key]).click()})
-        h
+        window.addEventListener("keydown", (e)=>{
+            e.preventDefault()
+            console.log(e.key)
+            document.getElementById(ids[e.key]).click()
+        });
         this.addNum = this.addNum.bind(this)
     }
 
