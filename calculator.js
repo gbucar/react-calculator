@@ -2,6 +2,26 @@ function parse(str) {
     return Function(`'use strict'; return (${str})`)()
   } 
 
+let ids = {
+    "0": "zero",
+    "1": "one",
+    "2": "two",
+    "3": "three",
+    "4": "four",
+    "5": "five",
+    "6": "six",
+    "7": "seven",
+    "8": "eight",
+    "9": "nine",
+    "=": "equals",
+    "*": "multiply",
+    "/": "divide",
+    "-": "substract",
+    ".": "decimal",
+    "+": "add",
+    "backspace": "clear"
+    }
+
 class Calculator extends React.Component {
     constructor(props) {
         super(props)
@@ -10,10 +30,12 @@ class Calculator extends React.Component {
             current: [0],
             isFloat: true
         }
+        window.addEventListener("keydown", (e)=>{document.getElementById(ids[e.key]).click()})
+        h
         this.addNum = this.addNum.bind(this)
     }
 
-    addNum(event) {
+    addNum(event) {4
         let character = event.target.innerText;
         let whole = [...this.state.whole];
         let current = [...this.state.current];
